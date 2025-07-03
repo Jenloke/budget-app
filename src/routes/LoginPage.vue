@@ -7,20 +7,27 @@ const email = ref('')
 const password = ref('')
 
 const handleLogin = async (email, password) => {
-  // console.log(email, password)
   const validLogin = await login(email, password)
-  // console.log(validLogin)
   validLogin ? Router.push({ path: '/' }) : console.log('login error')
 }
 </script>
 
 <template>
   <div
-    class="h-[100svh] flex flex-col items-center justify-center gap-2 *:w-1/4 text-center *:not-first:border-1"
+    class="h-[100svh] pb-50 flex flex-col items-center justify-center gap-10 bg-[#ffcbe1] *:w-2/3 md:*:w-1/3 text-center"
   >
-    <h1>Budget App</h1>
-    <input type="text" v-model="email" placeholder="Email" />
-    <input type="password" v-model="password" placeholder="Password" />
-    <button @click="handleLogin(email, password)">Login</button>
+    <h1 class="text-6xl">☊ Buddie</h1>
+    <div
+      class="flex flex-col gap-2 *:not-first:shadow-lg *:p-2 *:border-2 *:rounded-lg *:outline-none"
+    >
+      <input class="focus:bg-[#dcccec]" type="text" v-model="email" placeholder="Email" />
+      <input class="focus:bg-[#dcccec]" type="password" v-model="password" placeholder="Password" />
+      <button
+        class="w-1/2 mt-5 mx-auto transition-color duration-300 hover:bg-[#dcccec]"
+        @click="handleLogin(email, password)"
+      >
+        Login
+      </button>
+    </div>
   </div>
 </template>

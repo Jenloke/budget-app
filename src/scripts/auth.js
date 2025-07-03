@@ -1,4 +1,3 @@
-// For auth to supabase
 import { supabase } from './db'
 
 export const login = async (email, password) => {
